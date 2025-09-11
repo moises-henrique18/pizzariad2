@@ -1,13 +1,26 @@
 package com.itb.inf2dm.pizzariad2.model.entity;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Produto")
 public class Produto {
 
+    @Id // pk
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-incremento sequencial 1 em 1
     private Long id;
+    @Column(length = 100, nullable = false) // length qtde max de caracteres, nullble: false (NOT NULL), true  (null)
     private String nome;
+    @Column(length = 45, nullable = true)
     private String tipo;
+    @Column(length = 250, nullable = true)
     private String descricao;
+    @Column(nullable = true, columnDefinition = "DECIMAL(5,2)")
     private double valorCompra;
+    @Column(nullable = true, columnDefinition = "DECIMAL(5,2)")
     private double valorVenda;
+    @Column(nullable = true)
     private int quantidadeEstoque;
     private boolean codStatus;
 
